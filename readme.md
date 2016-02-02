@@ -22,20 +22,20 @@ as this loader will require the html loader (or some loader to process HTML into
 
 ## Options
 
-* templateName (string): The name of the template (the id of the script tag) (default: <resource-filename>)
+* templateName (string): The name of the template (the id of the script tag) (default: the-file-name-of-resource)
 * addToDom (bool): Automatically add the template to the DOM when loaded (default: false)
 
 ## Example
 
 Inline require without adding to DOM
 ```js
-var domElement = require("script-template?templateName=foo!./template.html");
+var domElement = require("script-template?templateName=foo!html!./template.html");
 // Do something with DOM element
 ```
 
 Inline require with DOM addition
 ```js
-require("script-template?templateName=foo&addToDom=true!./template.html");
+require("script-template?templateName=foo&addToDom=true!html!./template.html");
 // element is automatically added to the document.body
 ```
 
@@ -44,7 +44,7 @@ Configuration
 module.exports = {
     module: {
         loaders: [
-            { test: /\.html$/, loader: 'script-template?addToDom=true' }
+            { test: /\.html$/, loader: 'script-template?addToDom=true!html' }
         ]
     }
 };
