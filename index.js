@@ -14,7 +14,7 @@ module.exports = function (str) {
     out.push("var scriptElement = document.createElement('script');");
     out.push("scriptElement.setAttribute('id', '" + templateName +"');");
     out.push("scriptElement.setAttribute('type', 'text/html');");
-    out.push('scriptElement.innerHTML = module.exports;');
+    out.push('scriptElement.text = module.exports;');
     out.push('module.exports = scriptElement;');
 
     if(addToDom) {
